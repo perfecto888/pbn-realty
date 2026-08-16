@@ -1,0 +1,38 @@
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-normal);
+}
+
+/* Success Variant */
+.badge--success {
+  background-color: rgba(57, 255, 20, 0.15);
+  color: #39FF14;
+  border: 1px solid rgba(57, 255, 20, 0.4);
+}
+
+/* Warning Variant */
+.badge--warning {
+  background-color: rgba(255, 107, 53, 0.15);
+  color: #FF6B35;
+  border: 1px solid rgba(255, 107, 53, 0.4);
+}
+
+/* Danger Variant */
+.badge--danger {
+  background-color: rgba(232, 33, 39, 0.15);
+  color: #E82127;
+  border: 1px solid rgba(232, 33, 39, 0.4);
+}
+
+/* Info Variant */
+.badge--info {
+  background-color: rgba(0, 217, 255, 0.15);
+  color: #00D9FF;
+  border: 1px solid rgba(0, 217, 255, 0.4);
+}

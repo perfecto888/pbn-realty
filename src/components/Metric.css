@@ -1,0 +1,67 @@
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.metric__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric__value {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.metric__unit {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.metric__indicator {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  height: 20px;
+}
+
+/* Trend Up - Green */
+.metric--trend-up {
+  border-left: 4px solid #39FF14;
+}
+
+.metric--trend-up .metric__indicator {
+  color: #39FF14;
+}
+
+/* Trend Down - Red */
+.metric--trend-down {
+  border-left: 4px solid #E82127;
+}
+
+.metric--trend-down .metric__indicator {
+  color: #E82127;
+}
+
+/* Trend Neutral - Cyan */
+.metric--trend-neutral {
+  border-left: 4px solid #00D9FF;
+}
+
+.metric--trend-neutral .metric__indicator {
+  color: #00D9FF;
+}
