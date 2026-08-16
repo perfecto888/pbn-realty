@@ -1,0 +1,77 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-height: 320px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.rankBadge {
+  background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-purple));
+  color: var(--color-bg-primary);
+  font-weight: 800;
+  font-size: var(--font-size-xl);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-glow-md);
+}
+
+.address {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  flex: 1;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: rgba(0, 217, 255, 0.05);
+  border-radius: var(--radius-md);
+}
+
+.reasoning {
+  flex: 1;
+  padding: var(--space-md);
+  background: rgba(57, 255, 20, 0.05);
+  border-left: 3px solid var(--color-accent-green);
+  border-radius: var(--radius-md);
+}
+
+.reasoningText {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.button {
+  flex: 1;
+}
