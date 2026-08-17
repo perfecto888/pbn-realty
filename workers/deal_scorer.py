@@ -395,3 +395,156 @@ def score_all_properties(properties: List[Dict], market_data: Dict) -> List[Dict
         scored_properties.append(updated_prop)
 
     return scored_properties
+
+
+def fetch_properties_from_api(api_base: str) -> List[Dict]:
+    """
+    Fetch all properties from the API that need scoring.
+
+    Args:
+        api_base: Base URL of the API (e.g., http://localhost:3000)
+
+    Returns:
+        List of property dictionaries
+    """
+    import requests
+
+    properties = []
+    limit = 100
+    offset = 0
+
+    try:
+        while True:
+            url = f"{api_base}/api/properties?limit={limit}&offset={offset}"
+            print(f"[FETCH] Fetching properties from {url}")
+
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+
+            data = response.json()
+            batch = data.get('properties', [])
+
+            if not batch:
+                break
+
+            properties.extend(batch)
+            offset += limit
+
+            print(f"[FETCH] Loaded {len(batch)} properties (total: {len(properties)})")
+
+    except requests.exceptions.RequestException as e:
+        print(f"[ERROR] Failed to fetch properties: {e}")
+        return []
+
+    return properties
+
+
+def update_property_scores(api_base: str, property_id: int, scores: Dict) -> bool:
+    """
+    Update a property's scores via the API.
+
+    Args:
+        api_base: Base URL of the API
+        property_id: ID of the property to update
+        scores: Dictionary with score fields
+
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    import requests
+
+    try:
+        url = f"{api_base}/api/properties/{property_id}"
+
+        update_data = {
+            'scoreDealQuality': scores['scoreDealQuality'],
+            'scoreMarket': scores['scoreMarket'],
+            'scoreTenanDemand': scores['scoreTenanDemand'],
+            'scoreEntitlement': scores['scoreEntitlement'],
+            'compositeScore': scores['compositeScore'],
+            'estimatedIrr': scores['estimatedIrr'],
+            'acquisitionStrategy': scores['acquisitionStrategy'],
+        }
+
+        response = requests.put(url, json=update_data, timeout=10)
+
+        if response.status_code == 200:
+            print(f"[UPDATE] Property {property_id} scored: composite={scores['compositeScore']}")
+            return True
+        else:
+            print(f"[ERROR] Failed to update property {property_id}: HTTP {response.status_code}")
+            return False
+
+    except requests.exceptions.RequestException as e:
+        print(f"[ERROR] Error updating property {property_id}: {e}")
+        return False
+
+
+def main():
+    """
+    Main entry point for batch scoring all properties in the database.
+    Fetches unscored properties, scores them, and updates the database.
+    """
+    from datetime import datetime
+    from config import API_BASE
+
+    print("=" * 60)
+    print("Starting Property Scoring Pipeline")
+    print(f"API Base: {API_BASE}")
+    print(f"Timestamp: {datetime.now().isoformat()}")
+    print("=" * 60)
+
+    # For MVP, use a simple market data dict (could be enhanced with real data)
+    market_data = {
+        # Market data keys follow format: "City, State"
+        # This is a placeholder - in production, fetch from external API
+    }
+
+    # Fetch properties from API
+    print("\n[STEP 1] Fetching properties from API...")
+    properties = fetch_properties_from_api(API_BASE)
+
+    if not properties:
+        print("[WARN] No properties found to score")
+        return
+
+    print(f"[SUCCESS] Fetched {len(properties)} properties")
+
+    # Score all properties
+    print("\n[STEP 2] Scoring all properties...")
+    scored_properties = score_all_properties(properties, market_data)
+
+    # Update scores in API
+    print("\n[STEP 3] Updating property scores in API...")
+    updated_count = 0
+    failed_count = 0
+
+    for scored_prop in scored_properties:
+        if update_property_scores(
+            API_BASE,
+            scored_prop['id'],
+            {
+                'scoreDealQuality': scored_prop.get('scoreDealQuality'),
+                'scoreMarket': scored_prop.get('scoreMarket'),
+                'scoreTenanDemand': scored_prop.get('scoreTenanDemand'),
+                'scoreEntitlement': scored_prop.get('scoreEntitlement'),
+                'compositeScore': scored_prop.get('compositeScore'),
+                'estimatedIrr': scored_prop.get('estimatedIrr'),
+                'acquisitionStrategy': scored_prop.get('acquisitionStrategy'),
+            }
+        ):
+            updated_count += 1
+        else:
+            failed_count += 1
+
+    print("\n" + "=" * 60)
+    print("Scoring Pipeline Complete")
+    print(f"Properties Processed: {len(scored_properties)}")
+    print(f"Successfully Updated: {updated_count}")
+    print(f"Failed: {failed_count}")
+    print(f"Timestamp: {datetime.now().isoformat()}")
+    print("=" * 60)
+
+
+if __name__ == '__main__':
+    main()
