@@ -75,10 +75,15 @@ export default function DashboardPage() {
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Las Vegas Commercial Real Estate Deals</h2>
-            <p className={styles.sectionSubtitle}>
-              Focus: Las Vegas, NV Market | Click on a deal to view comprehensive financial analysis, property details, and manage your kanban status
-            </p>
+            <div>
+              <h2 className={styles.sectionTitle}>Las Vegas Commercial Real Estate Deals</h2>
+              <p className={styles.sectionSubtitle}>
+                Focus: Las Vegas, NV Market | Click on a deal to view comprehensive financial analysis, property details, and manage your kanban status
+              </p>
+            </div>
+            <Link href="/dashboard/deals/upload">
+              <Button variant="primary">Upload Excel →</Button>
+            </Link>
           </div>
 
           <div className={styles.dealsGrid}>
