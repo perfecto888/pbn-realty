@@ -19,7 +19,7 @@ const mockRecommendations = [
       compositeScore: 92,
       estimatedIrr: 18.5,
       squareFeet: 45000,
-      sourceUrl: 'https://www.redfin.com/commercial/251-E-Main-St-Phoenix-AZ-85004'
+      sourceUrl: 'https://www.redfin.com/commercial/phoenix-az/office'
     },
     score: 92,
     irrEstimate: 18.5,
@@ -37,7 +37,7 @@ const mockRecommendations = [
       compositeScore: 88,
       estimatedIrr: 17.2,
       squareFeet: 32000,
-      sourceUrl: 'https://www.redfin.com/commercial/500-N-Scottsdale-Rd-Scottsdale-AZ-85251'
+      sourceUrl: 'https://www.redfin.com/commercial/scottsdale-az/retail'
     },
     score: 88,
     irrEstimate: 17.2,
@@ -55,7 +55,7 @@ const mockRecommendations = [
       compositeScore: 85,
       estimatedIrr: 16.8,
       squareFeet: 120000,
-      sourceUrl: 'https://www.redfin.com/commercial/1200-S-Arizona-Ave-Chandler-AZ-85224'
+      sourceUrl: 'https://www.redfin.com/commercial/chandler-az/industrial'
     },
     score: 85,
     irrEstimate: 16.8,
@@ -73,7 +73,7 @@ const mockRecommendations = [
       compositeScore: 82,
       estimatedIrr: 16.1,
       squareFeet: 250,
-      sourceUrl: 'https://www.redfin.com/commercial/750-W-Camelback-Rd-Phoenix-AZ-85013'
+      sourceUrl: 'https://www.redfin.com/commercial/phoenix-az/apartment'
     },
     score: 82,
     irrEstimate: 16.1,
@@ -91,7 +91,7 @@ const mockRecommendations = [
       compositeScore: 79,
       estimatedIrr: 15.4,
       squareFeet: 68000,
-      sourceUrl: 'https://www.redfin.com/commercial/2000-E-Baseline-Rd-Tempe-AZ-85283'
+      sourceUrl: 'https://www.redfin.com/commercial/tempe-az/mixed-use'
     },
     score: 79,
     irrEstimate: 15.4,
