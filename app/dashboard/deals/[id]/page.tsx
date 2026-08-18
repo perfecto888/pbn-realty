@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { use, useState } from 'react';
 import Link from 'next/link';
 import { DashboardLayout } from '../../../../src/components/DashboardLayout';
 import { Card } from '../../../../src/components/Card';
@@ -95,7 +95,7 @@ const dealDatabase: Record<string, DealData> = {
 };
 
 export default function DealDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = (params instanceof Promise ? params : Promise.resolve(params));
+  const { id } = use(params);
   const deal = dealDatabase[id as string];
   const [status, setStatus] = useState<'not_interested' | 'maybe' | 'hot_deal'>(deal?.status || 'maybe');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
