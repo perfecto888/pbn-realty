@@ -14,6 +14,7 @@ interface Property {
   compositeScore: string | number | null;
   estimatedIrr: string | number | null;
   squareFeet: number | null;
+  sourceUrl?: string | null;
 }
 
 interface RecommendationCardProps {
@@ -97,9 +98,22 @@ export function RecommendationCard({
         >
           Save Deal
         </Button>
-        <Button variant="secondary" className={styles.button}>
-          View Details
-        </Button>
+        {property.sourceUrl ? (
+          <a
+            href={property.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.sourceLink}
+          >
+            <Button variant="secondary" className={styles.button} type="button">
+              View Source →
+            </Button>
+          </a>
+        ) : (
+          <Button variant="secondary" className={styles.button}>
+            View Details
+          </Button>
+        )}
       </div>
     </Card>
   );

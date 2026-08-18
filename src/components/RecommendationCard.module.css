@@ -79,3 +79,10 @@
   flex: 1;
   font-weight: 600;
 }
+
+.sourceLink {
+  flex: 1;
+  text-decoration: none;
+  display: flex;
+  align-items: stretch;
+}
