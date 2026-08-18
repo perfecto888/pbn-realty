@@ -39,25 +39,81 @@
   font-weight: 400;
 }
 
-.dealsCard {
-  padding: var(--space-lg);
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(57, 255, 20, 0.05));
-  border: 1px solid rgba(0, 217, 255, 0.2);
-  border-radius: var(--radius-lg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 120px;
-  transition: all 200ms ease;
+.dealsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
-.dealsCard:hover {
+.dealCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg) !important;
+  cursor: pointer;
+  transition: all 200ms ease;
+  height: 100%;
+}
+
+.dealCard:hover {
+  transform: translateY(-4px);
   border-color: rgba(0, 217, 255, 0.4);
   background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(57, 255, 20, 0.1));
 }
 
-.dealsCard a {
-  text-decoration: none;
+.dealHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.dealAddress {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.dealLocation {
+  margin: var(--space-xs) 0 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.dealDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-top: 1px solid rgba(0, 217, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+.dealDetail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.dealLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dealValue {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-accent-cyan);
+}
+
+.viewDealBtn {
+  margin-top: auto;
   width: 100%;
 }
 
@@ -117,6 +173,14 @@
 
   .sectionTitle {
     font-size: var(--font-size-xl);
+  }
+
+  .dealsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dealDetails {
+    grid-template-columns: 1fr;
   }
 
   .emptyState {
