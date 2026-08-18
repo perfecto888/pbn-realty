@@ -53,44 +53,44 @@ interface DealData {
 const dealDatabase: Record<string, DealData> = {
   '1': {
     id: '1',
-    address: '251 E Main St',
-    city: 'Phoenix',
-    state: 'AZ',
-    price: 4500000,
+    address: '3750 S Las Vegas Blvd',
+    city: 'Las Vegas',
+    state: 'NV',
+    price: 6200000,
     propertyType: 'Office',
-    squareFeet: 45000,
-    description: 'Class A office building in downtown Phoenix with strong tenant base and excellent location near transit.',
+    squareFeet: 52000,
+    description: 'Class A office building in the heart of Las Vegas with strong tenant base and excellent location near the Strip. Premium finishes and modern amenities.',
     images: [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
       'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'
     ],
-    capRate: 6.5,
-    noi: 292500,
-    cashOnCash: 8.2,
-    irr: 18.5,
+    capRate: 6.8,
+    noi: 421600,
+    cashOnCash: 8.9,
+    irr: 19.2,
     holdPeriod: 5,
-    exitPrice: 5400000,
-    mainTenant: 'Phoenix Corporate Services',
-    tenantCreditRating: 'A+',
+    exitPrice: 7400000,
+    mainTenant: 'Las Vegas Business Services LLC',
+    tenantCreditRating: 'A',
     leaseExpirationYear: 2029,
-    occupancyRate: 94,
-    marketGrowth: 4.2,
-    vacancyRate: 6,
+    occupancyRate: 96,
+    marketGrowth: 5.8,
+    vacancyRate: 4.2,
     economicOutlook: 'Strong',
-    thesis: 'Premium office space in high-growth market with excellent tenant quality and long-term lease. Downtown revitalization creates upside potential. Strong market fundamentals support cap rate expansion.',
+    thesis: 'Premium office space in the fastest-growing Nevada market with excellent tenant quality and long-term lease. Las Vegas market showing strong fundamentals with consistent growth. Tourism and business sectors driving demand.',
     riskFactors: [
-      'Remote work trends could impact office demand',
-      'Economic recession could affect tenant health',
+      'Economic downturn could impact tenant health',
+      'Tourism-dependent market volatility',
       'Interest rate increases could affect exit pricing'
     ],
     opportunities: [
       'Lease renewal at market rates in 2029',
-      'Value-add through building improvements',
-      'Potential for co-tenancy with adjacent properties'
+      'Strong Las Vegas market growth trajectory',
+      'Value-add through amenity upgrades'
     ],
     status: 'hot_deal',
-    sourceUrl: 'https://www.redfin.com/commercial/phoenix-az/office'
+    sourceUrl: 'https://www.redfin.com/commercial/las-vegas-nv/office'
   }
 };
 

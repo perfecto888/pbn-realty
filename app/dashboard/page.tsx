@@ -21,32 +21,32 @@ interface Deal {
 const exampleDeals: Deal[] = [
   {
     id: '1',
-    address: '251 E Main St',
-    city: 'Phoenix',
-    state: 'AZ',
-    price: 4500000,
+    address: '3750 S Las Vegas Blvd',
+    city: 'Las Vegas',
+    state: 'NV',
+    price: 6200000,
     propertyType: 'Office',
-    capRate: 6.5,
+    capRate: 6.8,
     status: 'hot_deal'
   },
   {
     id: '2',
-    address: '789 Oak Avenue',
-    city: 'Scottsdale',
-    state: 'AZ',
-    price: 3200000,
+    address: '2890 W Sahara Avenue',
+    city: 'Las Vegas',
+    state: 'NV',
+    price: 4100000,
     propertyType: 'Retail',
-    capRate: 5.8,
+    capRate: 6.2,
     status: 'maybe'
   },
   {
     id: '3',
-    address: '456 Industrial Way',
-    city: 'Chandler',
-    state: 'AZ',
-    price: 5800000,
+    address: '1650 Industrial Road',
+    city: 'Las Vegas',
+    state: 'NV',
+    price: 7500000,
     propertyType: 'Industrial',
-    capRate: 7.2,
+    capRate: 7.5,
     status: 'maybe'
   }
 ];
@@ -71,13 +71,13 @@ const getStatusLabel = (status: string) => {
 
 export default function DashboardPage() {
   return (
-    <DashboardLayout title="Active Deals">
+    <DashboardLayout title="Las Vegas Market Deals">
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Real Deal Analysis</h2>
+            <h2 className={styles.sectionTitle}>Las Vegas Commercial Real Estate Deals</h2>
             <p className={styles.sectionSubtitle}>
-              Click on a deal to view comprehensive financial analysis, property details, and manage your kanban status
+              Focus: Las Vegas, NV Market | Click on a deal to view comprehensive financial analysis, property details, and manage your kanban status
             </p>
           </div>
 
