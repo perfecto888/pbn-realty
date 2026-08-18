@@ -224,6 +224,7 @@ export default function DealDetailPage({ params }: { params: Promise<{ id: strin
             <Card>
               <h2 className={styles.sectionTitle}>Financial Analysis</h2>
               <div className={styles.metricsGrid}>
+                <Metric label="Sales Price" value={`$${(deal.price / 1000000).toFixed(1)}M`} />
                 <Metric label="Cap Rate" value={deal.capRate.toFixed(1)} unit="%" trend="up" />
                 <Metric label="NOI" value={`$${(deal.noi / 1000).toFixed(0)}k`} trend="up" />
                 <Metric label="Cash on Cash" value={deal.cashOnCash.toFixed(1)} unit="%" trend="up" />
