@@ -120,22 +120,41 @@ export async function POST(request: NextRequest) {
     const insertedDeals = [];
     for (const deal of validDeals) {
       try {
-        await db.insert(properties).values({
-          address: deal.address || '',
-          city: deal.city || 'Las Vegas',
-          state: deal.state || 'NV',
-          zip: deal.zip || '',
-          price: deal.price ? parseFloat(String(deal.price)) : undefined,
-          propertyType: deal.propertyType,
-          squareFeet: deal.squareFeet ? parseInt(String(deal.squareFeet), 10) : undefined,
-          yearBuilt: deal.yearBuilt ? parseInt(String(deal.yearBuilt), 10) : undefined,
-          currentNoi: deal.currentNoi ? parseFloat(String(deal.currentNoi)) : undefined,
-          currentCapRate: deal.currentCapRate ? parseFloat(String(deal.currentCapRate)) : undefined,
-          source: deal.source || 'Manual Upload',
-          sourceUrl: deal.sourceUrl,
-        });
+        // Build values object with explicit typing
+        const dealValues: any = {
+          address: String(deal.address || ''),
+          city: String(deal.city || 'Las Vegas'),
+          state: String(deal.state || 'NV'),
+          zip: String(deal.zip || ''),
+        };
 
-        insertedDeals.push({ id: 1, address: deal.address || '' });
+        // Add optional numeric fields
+        if (deal.price) {
+          dealValues.price = parseFloat(String(deal.price));
+        }
+        if (deal.propertyType) {
+          dealValues.propertyType = deal.propertyType;
+        }
+        if (deal.squareFeet) {
+          dealValues.squareFeet = parseInt(String(deal.squareFeet), 10);
+        }
+        if (deal.yearBuilt) {
+          dealValues.yearBuilt = parseInt(String(deal.yearBuilt), 10);
+        }
+        if (deal.currentNoi) {
+          dealValues.currentNoi = parseFloat(String(deal.currentNoi));
+        }
+        if (deal.currentCapRate) {
+          dealValues.currentCapRate = parseFloat(String(deal.currentCapRate));
+        }
+        if (deal.sourceUrl) {
+          dealValues.sourceUrl = deal.sourceUrl;
+        }
+
+        dealValues.source = 'Manual Upload';
+
+        await db.insert(properties).values([dealValues]);
+        insertedDeals.push(deal);
       } catch (err) {
         console.error('Error inserting deal:', err);
         errors.push({
