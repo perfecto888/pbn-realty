@@ -1,18 +1,9 @@
 {
   "version": 2,
-  "projectSettings": {
-    "sourceFilesOutsideRootDirectory": true
-  },
   "buildCommand": "npm run build",
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "CLAUDE_API_KEY": "@claude_api_key",
-    "NEWS_API_KEY": "@news_api_key",
-    "CRON_SECRET": "@cron_secret"
-  },
   "crons": [
     {
-      "path": "/api/cron/daily-scrape",
+      "path": "/api/cron/scrape",
       "schedule": "0 2 * * *"
     }
   ]
