@@ -31,6 +31,23 @@
   padding: var(--space-lg);
 }
 
+.instructionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.instructionHeader > div {
+  flex: 1;
+}
+
+.instructionHeader a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .sectionTitle {
   margin: 0 0 var(--space-md) 0;
   font-size: var(--font-size-lg);

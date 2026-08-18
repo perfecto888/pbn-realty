@@ -92,8 +92,15 @@ export default function DealsUploadPage() {
         <div className={styles.content}>
           {/* Instructions */}
           <Card className={styles.instructionsCard}>
-            <h2 className={styles.sectionTitle}>Upload Format</h2>
-            <p>Upload an Excel (.xlsx, .xls) or CSV file with the following columns:</p>
+            <div className={styles.instructionHeader}>
+              <div>
+                <h2 className={styles.sectionTitle}>Upload Format</h2>
+                <p>Upload an Excel (.xlsx, .xls) or CSV file with the following columns:</p>
+              </div>
+              <a href="/api/deals/template" download>
+                <Button variant="secondary">Download Template →</Button>
+              </a>
+            </div>
             <table className={styles.table}>
               <thead>
                 <tr>
