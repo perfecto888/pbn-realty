@@ -39,10 +39,69 @@
   font-weight: 400;
 }
 
-.recommendationsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-lg);
+.dealsCard {
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(57, 255, 20, 0.05));
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  transition: all 200ms ease;
+}
+
+.dealsCard:hover {
+  border-color: rgba(0, 217, 255, 0.4);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(57, 255, 20, 0.1));
+}
+
+.dealsCard a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.emptyState {
+  padding: var(--space-xl);
+  background: rgba(10, 14, 39, 0.4);
+  border: 1px dashed rgba(0, 217, 255, 0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.emptyState h3 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-accent-cyan);
+}
+
+.emptyState p {
+  margin: var(--space-sm) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.emptyState ul {
+  margin: var(--space-md) 0 0 0;
+  padding-left: var(--space-lg);
+  list-style: none;
+  text-align: left;
+  display: inline-block;
+}
+
+.emptyState li {
+  margin: var(--space-xs) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.emptyState li:before {
+  content: "→ ";
+  color: var(--color-accent-cyan);
+  font-weight: 600;
+  margin-right: var(--space-xs);
 }
 
 @media (max-width: 768px) {
@@ -56,11 +115,15 @@
     gap: var(--space-md);
   }
 
-  .recommendationsGrid {
-    grid-template-columns: 1fr;
-  }
-
   .sectionTitle {
     font-size: var(--font-size-xl);
+  }
+
+  .emptyState {
+    padding: var(--space-lg);
+  }
+
+  .emptyState h3 {
+    font-size: var(--font-size-base);
   }
 }
